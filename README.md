@@ -10,10 +10,15 @@ Before the Code
     - There are over 200 UNIX utilities, tools to accomplish routine tasks without writing new routines. 
     - There are over 60 system calls which are functions written in C. These calls are the heart of the UNIX system. 
     - Finally, there are a number of UNIX functions available, which are an extension of the basic UNIX system. 
-    - The system calls can only be accessed from C, same as the library functions. 
-    - Blah
-    - More blah
-    - Even more blah
+    - The system calls can only be accessed from C. The same can be said of the library functions, even though the latter is AVAILABLE on systems other than UNIX. 
+    
+    Versions of the Unix System
+    - Unix is comprised of:
+        1. Run time system: The kernel and most utilities.
+        2. Software development system.
+
+    
+    
   
 
 
