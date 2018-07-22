@@ -6,6 +6,7 @@ Before the Code
     
     Background on Unix
     - Unix supports a hierarchical file system.
+    - Unix supports a pipe: where the output of one program becomes the input of another. 
 
 
 The Basics
