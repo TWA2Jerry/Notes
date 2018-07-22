@@ -2,6 +2,12 @@
 A compilation of notes on C, Python, C++ and more
 
 
+Before the Code
+    
+    Background on Unix
+    - Unix supports a hierarchical file system.
+
+
 The Basics
 
     IDEs - Compilers
