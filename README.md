@@ -7,6 +7,7 @@ Before the Code
     Background on Unix
     - Unix supports a hierarchical file system.
     - Unix supports a pipe: where the output of one program becomes the input of another. 
+    - There are over 200 UNIX utilities, tools to accomplish routine tasks without writing new routines. 
 
 
 The Basics
