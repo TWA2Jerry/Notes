@@ -8,6 +8,8 @@ Before the Code
     - Unix supports a hierarchical file system.
     - Unix supports a pipe: where the output of one program becomes the input of another. 
     - There are over 200 UNIX utilities, tools to accomplish routine tasks without writing new routines. 
+    - There are over 60 system calls which are functions written in C. These calls are the heart of the UNIX system. 
+  
 
 
 The Basics
