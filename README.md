@@ -58,6 +58,25 @@ The Basics
     - Typically, /*As far as we've seen*/ the majority of output for C is in fact displayed on the TERMINAL of the computer, rather than
     on a website or app or console. /*In fact, perhaps the terminal is the console.*/
     
+    
+Data Types
+
+    sizeof() Operator
+    - This operator, when you input some variable or value inside the brackets, gives you the space occupied by that union, type or struct.
+    
+    
+ Type Casting
+    - When we tell C to handle a particular variable as a particular type
+    - To do so, we use the following notation:
+            
+            [type] [new_variable];
+            new_variable = ([type]) variable
+
+    For example:
+            float new;
+            int i = 10;
+            new = (float) i
+            //new is assigned the value 10.0
 
 Starting from Scratch
     
