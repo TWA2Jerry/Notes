@@ -16,6 +16,19 @@ Before the Code
     - Unix is comprised of:
         1. Run time system: The kernel and most utilities.
         2. Software development system.
+        
+        
+Files and Directories
+
+    The Directory System
+    - The Directory system is comprised of data files, device files and directory files.
+    - Data files are a set of information (such as data or program) that was created using the text editor or by running a program. This includes everything we write through the vi editor, e.g "vi program1.c" and other IDEs such as CodeLite, CodeBlocks etc. 
+    - Device Files are files which aren't stored on the disk at all, but represents a "peripheral device", such as teh terminal, disk, tape or printer. /*Not sure what their role is yet, need to check*/
+    - Directory Files are files which maintain a list of all files assigned to it, including data files, device files and other directory files(the offspring directories, or children, are known as subdirectories). 
+    - The whole directory system for UNIX (which also works on mac) is based on the idea that we start at the root directory. This is denoted by: /  . From the root, we then have a variety of other directories or even data and device files. Each directory may then have data files, device files, or even more directories, and so on.
+    - NOTE: ONLY DIRECTORY FILES CAN HAVE CHILDREN. 
+    - Definition: Children are any files which are underneath or within another directory file. 
+    
 
     
     
