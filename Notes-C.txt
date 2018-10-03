@@ -188,7 +188,15 @@ UNIX C Functions
 
 
 
-	- perror(): The perror function returns a pointer to the appropriate error message. It's value is automatically set by an error when attempting a system call. 
+	- perror(const char * s): The perror function returns a pointer to the appropriate error message. The perror function searches for the error message (e.g "File not in directory) corresponding to the current value of the global variable errno. perror then prints this message preceded by "[s]: ". So, for example, if we were to use a system call which failed due to the file not being in the directory, and we had:
+
+		perror("access")
+
+	The output would be:
+
+		access: File not a directory
+
+
 
 
 
