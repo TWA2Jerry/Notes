@@ -272,12 +272,17 @@ The Program
     
 Types
 
+	Note: If you have a character, say ‘A’, and you try to do arithmetic with it, you can, because ‘A’ is really just a number as well (corresponding to it’s ASCII value). 
+
+	- Likewise, if you try to print a number as a character, it will, as long as the number is within the possible range associated with a single character. That is, because a single character is 8 bits long, we have 2^8 possible characters, each corresponding to some unique combination of 8 1’s and 0’s(binary number), our largest possible number is 255 (although there are 256 possible combinations…see the proof in a later section). 
+
     Characters
     - The most basic data type. It's simply a single character, and the memory requirement is typically a single byte of memory.
     - It should be known that all characters have an associated integer value. Some of these are:
     
         A = 65, B = 66...
         a = 97, b = 98...
+	- Note: Given the 
 
     Strings
     - Strings are essentially an array of characters, held in between quotation marks. See the section below for the definition
