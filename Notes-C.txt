@@ -84,7 +84,7 @@ Data Types
     - When we tell C to handle a particular variable as a particular type
     - To do so, we use the following notation:
             
-            [type] [new_variable];
+            ([type]) [new_variable];
             new_variable = ([type]) variable
 
     For example:
@@ -93,6 +93,17 @@ Data Types
             new = (float) i
             //new is assigned the value 10.0
 
+	- Note also, we often use casting in the actual calculations themselves if need be through the same process. For example, if we want to find the a more accurate value of 5/2, we may use:
+
+		int a = 5;
+		float b = (float(a))/2;
+
+	And the value of b will now be 2.500000. Note that we could’ve also used: 
+
+		(float)a/2
+
+	
+
 Starting from Scratch
     
     IDE
@@ -100,7 +111,7 @@ Starting from Scratch
     
         1. Visual Code (Microsoft)
         2. CodeLite.
-        3. CodeBlocks /*This one actually seems kinda dodgy*/
+        3. CodeBlocks /*This one actually seems kinda dodgy. Well, not dodgy, just fucking hate it.*/
         
     That's about it! Otherwise, you don't really need anything else to create, edit and implement your own code!
 
