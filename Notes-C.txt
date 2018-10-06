@@ -22,7 +22,7 @@ Files and Directories
 
     The Directory System
     - The Directory system is comprised of data files, device files and directory files.
-    - Data files are a set of information (such as data or program) that was created using the text editor or by running a program. This includes everything we write through the vi editor, e.g "vi program1.c" and other IDEs such as CodeLite, CodeBlocks etc. 
+    - Data files are a set of information (such as data or program) that was created using the text editor or by running a program. This includes everything we write through the vi editor, e.g "vi program1.c" and other IDEs such as CodeLite, CodeBlocks etc. /*Actually, we're not too sure what the CodeBlock things are */
     - Device Files are files which aren't stored on the disk at all, but represents a "peripheral device", such as the terminal, disk, tape or printer. /*Not sure what their role is yet, need to check*/
     - Directory Files are files which maintain a list of all files assigned to it, including data files, device files and other directory files(the offspring directories, or children, are known as subdirectories). 
     - The whole directory system for UNIX (which also works on mac) is based on the idea that we start at the root directory. This is denoted by: /  . From the root, we then have a variety of other directories or even data and device files. Each directory may then have data files, device files, or even more directories, and so on.
@@ -92,6 +92,7 @@ Data Types
             int i = 10;
             new = (float) i
             //new is assigned the value 10.0
+
 
 Starting from Scratch
     
@@ -268,6 +269,7 @@ Types
         A = 65, B = 66...
         a = 97, b = 98...
 
+
     Strings
     - Strings are essentially an array of characters, held in between quotation marks. See the section below for the definition
     of an array. An example of a string would be:
@@ -304,6 +306,7 @@ Types
     
     The exact error was cannot initialise a variable of type char with an lvalue of type const char [6]. 
     
+
         Pre-set string functions
         NOTE: To implement these functions, you have to include the #include <string.h> preprocessing directive. 
         - There are a number of in-built functions which can manipulate and use strings as arguments.
@@ -315,9 +318,12 @@ Types
         - The second is strncmp, which means string comparison, and compares the string to another string. This is used in lieu of
         the "==" operator for integers. This is implemented:
         
-            strncmp(string_name, "string") or strncmp("string", string_name) or strncmp("string1", "string2")
+            strncmp(string_name, "string",n) or strncmp("string", string_name,n) or strncmp("string1", "string2",n)
             
-        The function returns a value of 0 if the strings match, and 1 if they don't.
+        The function returns a value of 0 if the strings are the same, less than zero if the stopping character in the first parameter string has an integer value less than second, and vice versa.
+	- Note that the "stopping character" referred to above is the nth character, in other words, the last character to be compared. 
+	
+	
         - Concatenation: The third function is strncat, which means string concatenation. This involves appending, ie adding, a piece
         of one string to THE END of another. This is implemented as follows:
         
