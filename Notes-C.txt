@@ -209,7 +209,8 @@ UNIX C Functions
 
 
 
-
+Input
+	- One way of giving an EOF or stopping scant as far as we can see if by pressing the “esc” button, which shows up as “^[“. 
 
 
     
