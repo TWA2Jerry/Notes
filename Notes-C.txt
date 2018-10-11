@@ -488,7 +488,9 @@ Scope
 
 		int i =  2;
 	
-	Then for function 2, whenever you use the variable i, it’s value will be counted as 2, not 1, since the scope of the variable i is local in both cases. However, if you were to declare a variable I
+	Then for function 2, whenever you use the variable i, it’s value will be counted as 2, not 1, since the scope of the variable i is local in both cases. However, if you were to declare a variable i outside of all functions, then this value will be used for all other functions without their own declaration of a variable i. 
+	- In other words, given an identifier x, if a function has its own declaration of x as a variable, then it will use whatever value of that variable in the local scope was initialised as. If however, we have defined x as a variable outside of all functions, then all functions can access the value of x if they haven’t declared or initialised x in themselves. 
+	- The user may also wonder, what if we declare a variable x inside a function and outside a function, but we only initialise the x outside the function? In such a case, we still adhere to the rule above: the local value of x will be used in the function since it has a declaration, and by empirical testing, it’s default value will be 0 if not explicitly initialised. 
 
 
 Structures
