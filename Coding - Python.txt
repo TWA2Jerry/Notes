@@ -1,3 +1,24 @@
+The Basics
+
+	IDES
+	To start editing in Python, we can use a variety of tools. Our preferred ones are:
+		- Canopy
+		- Thonny (noob)
+
+
+Input Output
+	- One of the most common input methods is:
+
+		stdin.split()
+
+	- 
+
+	Modules
+	- Python comes with a lot of handy in-built functions. These come from what’s known as the standard Python Library. 
+	- However, there are also other inbuilt functions from libraries that have to be imported. 
+
+
+
 Mathematics
 
     It should be noted that in python, assigning a string to a variable does not require brackets. 
@@ -47,6 +68,14 @@ Strings
         Apostrophes in string can be remedied by a \ in front of the apostrophe, e.g isn\'t.
         
         In Python, accessing an item from an array of string is given by "string"[item number]
+
+	- In Python, multi-line strings are also possible through triple quotation marks as follows:
+
+		“””This
+		Is
+		A
+		Multi-Line String”””
+
     
     String Methods
         len()
@@ -208,10 +237,21 @@ Functions
         
         3. The body describes the procedures the function carries out. The body is indented, just like
         blocks of code would be in conditional statements.
+
+
+	Example:
+
+		def printsomething(string_argument):
+			“This line is just a documentation string, describing what the function does. In this case, the function just prints the argument”
+			print(string_argument)
+
+
+	Scope
+	- Each function has its own local scope containing it’s own values for variables. Even if the functions have identical variable names, their values and usage will not clash. 
     
     Calling
         To implement a function, we must always "call" it by typing in the function name and parameters if need be.
-        This can be showni in the following notation
+        This can be shown in the following notation
         
             function_name(parameter1, parameter2, parameter3)
         
@@ -433,7 +473,7 @@ Lists
 
             Modification of a dictionary item can be done by
             
-                dicionary_name[key_name] = new_value
+                dictionary_name[key_name] = new_value
                 
     Removal
         To remove an item from a list, we use the remove function:
@@ -508,7 +548,7 @@ Range function
     
     NOTE: The default start for a range function is 0, NOT 1. 
             
-List-Concantenation
+List-Concatenation
     If you want to derive a larger list which is a combination of two lists, simply use:
     
         x = y+z
@@ -640,6 +680,7 @@ Note: Print statements will always print a number in integer form unless you spe
             1s at the 1 and 2s place values moved beyond the minimal placevalue, so they no longer count. 
                 
         NOTE: We can easily use variables as substitutes for the actual numbers, as we do for ordinary integers, and manipulate the variables instead.
+	Maths: Also remember that sliding by certain places in binary is equivalent to sliding certain places in decimal form: in decimal form, each slide left meant the number was multiplied by 10, in binary form, each slide left means the number is multiplied by 2. 
         
         
     Operators
@@ -695,7 +736,70 @@ Note: Print statements will always print a number in integer form unless you spe
 Objects
 
     The properties of objects can in fact be manipulated or changed after their initialisation. 
+
+
+Visuals
+
+	Procedure
+	1. import matplotlib.pyplot as plt
+	2. plt.plot([x_1, x_2,x_3…],[y_1,y_2,y_3],’[[colour][marker]]’
+
+
+
+Numpy - Array operations
+
+
+	
+
+
+	In Python, there is a scientific library known as Numpy which contains a number of useful functions and definitions. The Numpy library can be used via:
+
+		import numpy as np
+
+	Here, note that numpy is the library’s name, and the “as np” part is us setting a nickname for the usage of the library. 
+	
+	Numpy arrays
+	
+		np.array([element_1,element_2…])	(single dimensional array)
+
+		np.array([[element_11,element_12…],[element_21,element_22]…])	(multidimensional array)
+
+
+	where()
+	- 
+		np.where([condition])
+
+	- The where() function of numpy returns the indexes of an array corresponding to the elements which fulfil the conditions in the where() argument. 
+	- By using the where() function inside the brackets of an array, we can also output the actual elements of the array which fulfil the condition (rather than just the indexes themselves). For example:
+
+	data = [1,2,3,4]
+	big_data = data[np.where(data > 2)]
+	#big_data = [3,4]	
+
+
+	- The “where” function can also be used to modify multiple data points at once. For example:
+
+	data = np.array([1,2,3,4])
+	data[np.where(data > 2)] += 2
+	#data is now [1,2,5,6]
+
+	Multiple modifications
+	- We can also modify multiple indexes at once, even without the where function, through the following notation:
+
+		[array_name][[index_1,index_2,index_3…]] = [some_operation]
     
+
+	Array Sort
+	- Arrays in Python have an inbuilt sort function:
+
+		a = np.array([1,2,3,4])
+		a.sort()
+
+	- Moreover, for multidimensional arrays, we can also choose what to sort: the rows or the columns. This is achieved via the following notation:
+
+		a.sort(axis = 0)	Here, the axis = 0 means we’re sorting the columns, i.e., each column will now go from smallest to largest, top to bottom. 
+
+		a.sort(axis = 1)	Here, the axis = 1, which means we’re sorting each row, i.e., each row will now go from smallest to largest, left to right. 
     
     
         
