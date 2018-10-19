@@ -800,6 +800,34 @@ Numpy - Array operations
 		a.sort(axis = 0)	Here, the axis = 0 means we’re sorting the columns, i.e., each column will now go from smallest to largest, top to bottom. 
 
 		a.sort(axis = 1)	Here, the axis = 1, which means we’re sorting each row, i.e., each row will now go from smallest to largest, left to right. 
+
+
+Array Structures
+Array structures are essentially like arrays holding objects. 
+
+	array_name = np.array([([p11],[p12],[p13]…),([p21],[p22],[p23])…],dtype = [(“feature1_name”, data_type1),(“feature2_name”,data_type2)…])
+
+	Here, the elements [p11] and [p12] etc represent the features of each “object”. Note that here, we’ve used the first digit to indicate the object number, and the second digit to indicate the feature of the object. So [p12] for example, just means that we’re referring to the second feature of the 1st object in our array. The above notation is just generic, in reality, we may use something like:
+
+
+	array_name = np.array([(“Jesse”, 18, 7)],dtype = [(“Name”,”U10”),(“age”,int),(“GPA”,float)])
+
+	We can then access the elements as if the array were a 2 dimensional array:
+
+		array_name[1][“name”]
+		
+		#gives the name of the first object in the array for instance
+
+	
+	This of course means we can alter the characteristic:
+
+
+		array_name[1][“name”] = “Blah”
+
+	We can also access the array simply by name
+
+		array_name[“name”]
+	
     
     
         

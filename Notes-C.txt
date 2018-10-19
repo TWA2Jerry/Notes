@@ -452,7 +452,17 @@ Operators
 
 	- A grand example: For example, we could have:
 
-	
+		int x,y,z;
+		y = 2, z = 3;
+		
+		x = ++y + z++;
+		printf(“The value of x, y and z respectively are: %d, %d, %d\n”,x,y,z);
+			
+		And this will output:
+
+		“The value of x, y and z respectively are: 6, 2 and 4”
+
+		HOWEVER, note that the reason x = 6 isn’t because our expression was 2 + 4, it’s because our expression was actually 3 + 3. This is because the postfix increment for z means that we used the current value of z, 3, in the expression, then incremented it, then we incremented the value of y from 2 to 3, and used that in the expression. 
 
 
 Pointers
@@ -477,7 +487,11 @@ we're also changing the value of the variable, because our program recognises th
         [array_type] *[array name][] =
         
 Scope
-	- The idea of scope refers to how far reaching a variable is. 
+	- The idea of scope refers to how far reaching a variable is, or over what domain its value holds. 
+	- The simple rule is: 
+		1. If a variable is not declared within any given inner block of code (which includes functions), then its declaration and initialisation will come from some outer block of code (and if it hasn’t been declared and initialised in any outside block of code, there’s obviously an error). 
+		2. If a variable is declared and/or initialised within some block of code, then the original variable name is temporarily hidden and unavailable until the block of code is exited, at which point the memory space used by the inner variable is freed. 
+	- What the above rules mean is that if we have parallel 
 	- By default, most variables declared within functions, e.g the main function, are local: this means that when they are declared, memory for the variable is allocated on the stack, then deallocated once the function is exited. 
 	- So say for example you declare and initialise a variable i in main s.t:
 
@@ -496,6 +510,7 @@ Scope
 		extern [data_type] [variable_name];
 	
 	This means that further references to variable_name will use the value initialised to the variable outside of the function. 
+	
 
 
 Structures
