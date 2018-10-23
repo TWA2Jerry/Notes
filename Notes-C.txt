@@ -73,8 +73,30 @@ The Basics
     - Typically, /*As far as we've seen*/ the majority of output for C is in fact displayed on the TERMINAL of the computer, rather than
     on a website or app or console. /*In fact, perhaps the terminal is the console.*/
     
+
+Identifiers
+	- Identifiers in C are a sequence of any finite length (but greater than or equal to 1) consisting of letters, numbers and underscores. However, all identifiers must begin with either a letter or an underscore. 
+	- Identifiers can be used for the following:
+		- Variable names
+		- Function names
+		- Constant Names
+		- Names for Type I and Type II UNIX C functions
+		- Keywords
+
+
+	Keywords
+		- Keywords are words which are reserved for use in a predefined context. 
+		- For example, the “while” word can only be used for iteration and testing. It won’t allow the user to set initial conditions in its testing. Likewise, the word “else” can only be used after the user has already used an “if” statement. 
+
+Expressions and Statements
+	- Expressions are any valid combination of constants, variables, operators and function calls. 
+	- Statements are expressions terminated by a semicolon. 
     
 Data Types
+
+	Arrays
+	- Arrays are collection of elements of the same data type within the computer’s RAM. 
+	- 
 
     sizeof() Operator
     - This operator, when you input some variable or value inside the brackets, gives you the space occupied by that union, type or struct.
@@ -84,8 +106,8 @@ Data Types
     - When we tell C to handle a particular variable as a particular type
     - To do so, we use the following notation:
             
-            [type] [new_variable];
-            new_variable = ([type]) variable
+            [type1] [variable] = [type1 value];
+            [type2] [new_variable] = ([type2]) variable
 
     For example:
             float new;
@@ -93,6 +115,36 @@ Data Types
             new = (float) i
             //new is assigned the value 10.0
 
+<<<<<<< HEAD
+=======
+	- Note also, we often use casting in the actual calculations themselves if need be through the same process. For example, if we want to find the a more accurate value of 5/2, we may use:
+
+		int a = 5;
+		float b = (float(a))/2;
+
+	And the value of b will now be 2.500000. Note that we could’ve also used: 
+
+		(float)a/2
+
+	Conversions
+		- We will often want to evaluate expressions involving variables of mixed data types. 
+		- If we don’t convert the types explicitly, then a process known as “implicit coercion” takes place. 
+		- In such cases, the lower type is always converted to the highest type according to the following hierarchy:
+
+			char or short -> int -> unsigned -> long - > unsigned long -> float -> double
+
+		- The above process is known as widening. Alternatively, we can also shorten the expression (convert the expression type and data types to lower values). For example:
+
+			int i = 9;
+			float f = 3.1415;
+			i = i/((int)f);
+			printf(“%d\n”,I);
+			
+			/*Output: 3*/
+	
+		The above example outputs three because in our evaluation for i, we used the integer form of variable “f”, 3 (truncated from 3.1415) so 9/3 == 3.
+	
+>>>>>>> 757f2536b30fa6515ddce29f021c6e1d934daaef
 
 Starting from Scratch
     
@@ -101,7 +153,7 @@ Starting from Scratch
     
         1. Visual Code (Microsoft)
         2. CodeLite.
-        3. CodeBlocks /*This one actually seems kinda dodgy*/
+        3. CodeBlocks /*This one actually seems kinda dodgy. Well, not dodgy, just fucking hate it.*/
         
     That's about it! Otherwise, you don't really need anything else to create, edit and implement your own code!
 
@@ -129,7 +181,7 @@ Starting from Scratch
 
 		Jesses-iMac: Documents JZ$ 
 
-	You can type in anything you want after the dollar sign. 
+	Whatever you type in after the dollar sign are the commands. 
 
 
 
@@ -145,7 +197,8 @@ Command Line Commands
 		man [command]
 	- However, because there are often different versions of the same command, you often have to type
 
-		man [manual-section] [command]
+		man [manual-section] [command or whatever you’re looking for
+]
 	
 	To specify which command you actually want. 
 
@@ -199,7 +252,8 @@ UNIX C Functions
 
 
 
-
+Input
+	- One way of giving an EOF or stopping scanf as far as we can see if by pressing the “esc” button, which shows up as “^[“. 
 
 
     
@@ -260,7 +314,42 @@ The Program
     - On the other hand, conditional statements such as if-then, or while, do not require semicolons after the main block of code. 
     
     
-Types
+Data Types
+
+	Note: If you have a character, say ‘A’, and you try to do arithmetic with it, you can, because ‘A’ is really just a number as well (corresponding to it’s ASCII value). 
+
+	- Likewise, if you try to print a number as a character, it will, as long as the number is within the possible range associated with a single character. That is, because a single character is 8 bits long, we have 2^8 possible characters, each corresponding to some unique combination of 8 1’s and 0’s(binary number), our largest possible number is 255 (although there are 256 possible combinations…see the proof in a later section). 
+
+
+	Arrays
+	- Arrays are collections of values of the same data type organised under the same name. 
+	- Arrays are typically declared through:
+
+		
+		[data type of array elements] [array_name][n];
+
+		Note that here, n refers to the number of elements in the array. 
+
+	- Arrays can be initialised through the following format:
+
+		[data type of array elements] [array_name] [n] = {element_1, element_2….element_n};
+
+	Likewise, note that for multidimensional arrays, we can initialise arrays through:
+
+		[data type] [array_name][m][n] = {
+
+		{x_11,x_12,…x_1n},
+		{x_21,x_22,…x_2n],
+		.
+		.
+		.
+		{x_m1,x_m2,…x_mn}
+
+
+		};
+	
+	- The name of an array is in fact a pointer to the first element of the array.  
+
 
     Characters
     - The most basic data type. It's simply a single character, and the memory requirement is typically a single byte of memory.
@@ -268,6 +357,7 @@ Types
     
         A = 65, B = 66...
         a = 97, b = 98...
+	- Note: Given the 
 
 
     Strings
@@ -302,7 +392,7 @@ Types
     
         char s = "string"
         
-    Here, the output and error messages from the debugger seem to indicate that s is automatically read as an array.
+    Here, the output and error messages from the debugger seem to indicate that s is automatically read as an array. /*No, this shouldn’t work, because we’re saying that s is a char type variable, it’s value is just a single character. 
     
     The exact error was cannot initialise a variable of type char with an lvalue of type const char [6]. 
     
@@ -342,6 +432,47 @@ Types
         points to the memory address of the first character of the sub-arrays. This means a lot of space is saved, as each element (p[0], p[1] etc) will only take up
         as much space as needed for all the characters and the values of the pointers themselves. 
         
+
+Operators
+	
+	Suffix and prefix increment/decrement
+	- Suffix increments/decrements use the current value of some variable in the expression, then increments/decrements it afterwards. Suffix increments are of the form:
+
+		x++;
+
+	Example:
+
+		int x = 5, y =4;
+		y = x++;
+	
+		/*y = 5 and x = 6 at the end, because x++ means we used the current value of x, 5, in the expression, so y == 5, and then incremented x afterwards, bringing its value to 6 */
+
+	- Prefix increments/decrements increment/decrement the variable, and then uses the value in the expression. Prefix increments are of the form:
+
+		++x;	
+
+	For instance, we could have:
+	
+		int x = 2, y= 2;
+		y = ++x;
+		
+		/*y now equals 3*/
+
+	- A grand example: For example, we could have:
+
+		int x,y,z;
+		y = 2, z = 3;
+		
+		x = ++y + z++;
+		printf(“The value of x, y and z respectively are: %d, %d, %d\n”,x,y,z);
+			
+		And this will output:
+
+		“The value of x, y and z respectively are: 6, 2 and 4”
+
+		HOWEVER, note that the reason x = 6 isn’t because our expression was 2 + 4, it’s because our expression was actually 3 + 3. This is because the postfix increment for z means that we used the current value of z, 3, in the expression, then incremented it, then we incremented the value of y from 2 to 3, and used that in the expression. 
+
+
 Pointers
 - Pointers are simply variables which hold the value of the memory address of something, rather than the value itself.
 - Pointers are declared using the following notation:
@@ -361,9 +492,34 @@ we're also changing the value of the variable, because our program recognises th
     Array of pointers
     An array of pointers can be initialised using the following syntax:
     
-        [array_type] *[array name] =
+        [array_type] *[array name][] =
         
-        
-        
+Scope
+	- The idea of scope refers to how far reaching a variable is, or over what domain its value holds. 
+	- The simple rule is: 
+		1. If a variable is not declared within any given inner block of code (which includes functions), then its declaration and initialisation will come from some outer block of code (and if it hasn’t been declared and initialised in any outside block of code, there’s obviously an error). 
+		2. If a variable is declared and/or initialised within some block of code, then the original variable name is temporarily hidden and unavailable until the block of code is exited, at which point the memory space used by the inner variable is freed. 
+	- What the above rules mean is that if we have parallel 
+	- By default, most variables declared within functions, e.g the main function, are local: this means that when they are declared, memory for the variable is allocated on the stack, then deallocated once the function is exited. 
+	- So say for example you declare and initialise a variable i in main s.t:
+
+
+		int i = 1;
+
+	If you then declare and initialise a variable i in another function, say function_2, s.t:
+
+		int i =  2;
+	
+	Then for function 2, whenever you use the variable i, it’s value will be counted as 2, not 1, since the scope of the variable i is local in both cases. However, if you were to declare a variable i outside of all functions, then this value will be used for all other functions without their own declaration of a variable i. 
+	- In other words, given an identifier x, if a function has its own declaration of x as a variable, then it will use whatever value of that variable in the local scope was initialised as. If however, we have defined x as a variable outside of all functions, then all functions can access the value of x if they haven’t declared or initialised x in themselves. 
+	- The user may also wonder, what if we declare a variable x inside a function and outside a function, but we only initialise the x outside the function? In such a case, we still adhere to the rule above: the local value of x will be used in the function since it has a declaration, and by empirical testing, it’s default value will be 0 if not explicitly initialised. 
+	- One way of being able to use a variable declared outside of a function, including from another source file, is to use the method:
+
+		extern [data_type] [variable_name];
+	
+	This means that further references to variable_name will use the value initialised to the variable outside of the function. 
+	
+
+
 Structures
 - Structures are pretty much just objects and classes in C. 
