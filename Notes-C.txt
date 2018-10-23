@@ -427,6 +427,11 @@ Data Types
 
 Operators
 	
+	
+	Relational Operators
+	Relational operators in C return either a 1, for cases where the relation is true, or 0, for cases where the relation is false. 
+
+
 	Suffix and prefix increment/decrement
 	- Suffix increments/decrements use the current value of some variable in the expression, then increments/decrements it afterwards. Suffix increments are of the form:
 

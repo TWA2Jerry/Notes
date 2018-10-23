@@ -901,7 +901,23 @@ Symbolic Computation in Python
 	solve(y)
 	
 
+Input and Output
 
+
+	Reading from lines in a file
+
+	with open(‘file_name_or_path’) as [alias_name]:
+
+		for line in [alias_name]:
+		
+		#do some code, below are some common processes
+
+		#This code splits the line into each word delineated by whitespace
+		content = line.split()
+
+		#If you want to split the input line according to some other character, such as a comma, you can use:
+
+		content = line.split(‘[character_to_split_by]’)
 	
     
     
