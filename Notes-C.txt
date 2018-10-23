@@ -1,5 +1,4 @@
 # Notes
-#Now this is the version on our laptop which should cause conflicts
 A compilation of notes on C, Python, C++ and more
 
 
