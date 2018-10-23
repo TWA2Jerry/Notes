@@ -11,7 +11,22 @@ Input Output
 
 		stdin.split()
 
-	- 
+	- To iterate over multiple lines of input, we can use:
+		
+		#This is the basic setup
+		import sys
+		from sys import stdin	
+		
+
+		for line in sys.stdin:
+			#Do stuff with the input
+
+	- Alternatively, if you’re reading input from a file, we can use:
+
+		with open(‘data_file_name’) as input_file_alias:
+			for line in input_file_alias:
+				#do something with the input
+
 
 	Modules
 	- Python comes with a lot of handy in-built functions. These come from what’s known as the standard Python Library. 
@@ -827,6 +842,66 @@ Array structures are essentially like arrays holding objects.
 	We can also access the array simply by name
 
 		array_name[“name”]
+
+
+Symbolic Computation in Python
+- In our previous attempts with C and other languages, we’ve often found that it’s hard to do simple mathematical operations such as differentiation. 
+- In Python, this is completed through the package called SymPy (this can be “downloaded”) on Thonny by again searching it up in the “Tools” bar up the top, then “manage packages”. 
+- We then take introductory steps by using the following:
+
+	from sympy import symbols, diff
+
+	x,y = symbols(‘x y’)
+	y = x**2
+	diff(y)
+
+- To display formula better, it may be more worthwhile to use the init_session. To do so, we use the following code:
+
+	from sympy import init_session
+
+	init_session()
+
+	What then follows seems to be that we’re taken to the command line. Currently, we’re not sure of how to print the differential straight from the source file. 
+
+- To find solutions, you have to use the following code (as far as we can tell):
+	
+
+
+	#setup the basics, such as importing the diff, solve and symbols modules
+	y = [f(x)] #This part is optional, and really you only need it if you want to define some function of x for ease of use. 
+	[operation]([expression],[variable to perform operation on])
+	#Note however, if you have an expression of multiple variables, you can continue to perform operations inside operations, for example:
+
+		f = x*y**3 + x**2
+		diff(diff(f,y),x)
+		Here, what we’ve done is we’ve differentiated the function f w.r.t y, which yields 3*x*y**2, and then we’ve differentiated that w.r.t x, so our final expression is 3*y**2. 
+
+
+
+
+	#This is just setting up the basic maths
+	from sympy import diff, symbols
+	#This is importing the specific solver functions
+	from sympy.solvers import solve
+	
+	x = symbols(‘x’)
+	solve(x**2 + 4*x + 3)
+
+	#Or if you want to output the solution, just print it
+	print(solve(x**2 + 4*x + 3))
+	#Note that you can also solve for x explicitly through the notation:
+
+	solve(x**2 + 4*x + 3,x)
+
+	- Alternatively, if you want to solve for a defined function, you can use:
+
+	#Setup the basic stuff
+	x,y = symbols(‘x y’)
+	y = [f(x)]
+	solve(y)
+	
+
+
 	
     
     
