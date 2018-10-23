@@ -115,8 +115,6 @@ Data Types
             new = (float) i
             //new is assigned the value 10.0
 
-<<<<<<< HEAD
-=======
 	- Note also, we often use casting in the actual calculations themselves if need be through the same process. For example, if we want to find the a more accurate value of 5/2, we may use:
 
 		int a = 5;
@@ -144,7 +142,6 @@ Data Types
 	
 		The above example outputs three because in our evaluation for i, we used the integer form of variable “f”, 3 (truncated from 3.1415) so 9/3 == 3.
 	
->>>>>>> 757f2536b30fa6515ddce29f021c6e1d934daaef
 
 Starting from Scratch
     
