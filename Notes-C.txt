@@ -1,4 +1,5 @@
 # Notes
+#This is just to see how we resolve the conflicts
 A compilation of notes on C, Python, C++ and more
 
 
