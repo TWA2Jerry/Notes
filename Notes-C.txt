@@ -237,6 +237,19 @@ UNIX C Functions
 		chmod u = rwx, g = rwx, o = [file_name]
 
 
+	- errno: The external variable errno has a value which is automatically set to some value on the failure of a system call. The value of errno is usually an integer, and if we want to use errno in our program, we have to declare it as:
+
+		extern int errno;
+
+	Moreover, if we want to access the value of errno symbolically, we have to also use the preprocessor directive:
+
+		#include <errno.h>
+
+	- If we just declare errno through the extern declaration, then we can only access  the integer value of errno. We would then have to search up the meaning associated with this integer in the user manual by typing in the command line:
+
+		man 2 intro
+
+	- If we also include errno.h, then we can also access the value of errno symbolically, for example, we can say that errno == 27, and errno == ENOTDIR if the object we’re trying to access isn’t a directory. 
 
 
 	- perror(const char * s): The perror function returns a pointer to the appropriate error message. The perror function searches for the error message (e.g "File not in directory) corresponding to the current value of the global variable errno. perror then prints this message preceded by "[s]: ". So, for example, if we were to use a system call which failed due to the file not being in the directory, and we had:
@@ -248,6 +261,59 @@ UNIX C Functions
 		access: File not a directory
 
 	- To use perror, we don’t need any preprocessor directives because error is a system call. 
+	- Access: We can determine whether or not a accessible for some mode through the following notation
+
+
+			access([path_name],[mode])
+
+	path_name is a string referring to either the local or full pathname of a file, and mode is a single number (unfortunately, we don’t believe it’s possible at this moment to check the permissions for other users such as group, other etc.). The mode can be entered as a single digit or with leading zeros. 
+		- To use access(), we have to use the preprocessor directive
+
+			#include <unistd.h>
+
+	The access() system call returns a 0 if the mode is permitted for the file, and return -1 otherwise. It automatically sets the value of errno and error if unsuccessful. 
+
+
+	The standard check
+
+		#include <stdio.h>
+		#include <unistd.h>
+		#include <errno.h>
+
+		char * filename;
+		int access_mode;
+		printf(“Please input the file name and access mode\n”);
+		scanf(“%s %d”, filename, &access_mode);
+	
+
+		/*We now use chmod, access or some other system call*/ 
+
+
+		if([system_call(filename,access_mode)] == 0) {
+			
+			printf(“Success! The mode is permitted for the file\n”);
+	
+
+		}
+
+		else{
+			(a bunch of if statements to check what the value of errno was (either its symbolic or integer form)
+
+			(perror(“[system_call]”:))
+
+		}
+
+
+	In conclusion, the order of figuring out the reason why a system call failed is (from worst to best):
+
+		1. Don’t do anything. Just have no clue why stuff failed.
+		2. Include the declaration of “extern int errno”, and do the standard test, then determine the error associated with the integer value of errno. 
+		3. Include the file errno.h as a preprocessor directive, and we can also use the symbolic value of errno
+		4. Use the system call perror(). 
+
+		
+
+
 
 
 
