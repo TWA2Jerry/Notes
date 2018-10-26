@@ -247,6 +247,8 @@ UNIX C Functions
 
 		access: File not a directory
 
+	- To use perror, we don’t need any preprocessor directives because error is a system call. 
+
 
 
 Input
@@ -525,3 +527,73 @@ Scope
 
 Structures
 - Structures are pretty much just objects and classes in C. 
+- Structures can be declared in the following manner:
+
+		(typedef) [struct] (struct_name) {
+
+
+			[data_type1] [member_name];
+			[data_type2] [member_name];
+			.
+			.
+			.
+
+		} (alias)[variable_names];
+
+
+	- Here, note that we’ve put the typedef and struct_name as well as alias in ordinary parentheses to reflect the fact that they are optional. No matter what, we have to declare the block of code as a struct, but if we only declare it as a struct with no struct_name, we can’t initialise other variables to be of this struct type except those immediately after the braces. So, for example:
+
+		struct {
+
+			int val;
+
+		} a1, a2, a3;
+
+	Here, we initialise a1, a2 and a3 as being of type struct (i.e., they are structures with a single member, val). However, beyond these variables, we can’t declare another variable to be of the same struct unless we redeclare the struct code AGAIN. So, we can’t just go:
+
+
+		struct a4 = malloc(sizeof(struct));
+
+	A more sophisticated method of declaring structs would be:
+
+
+		struct struct_name {
+
+			int val;
+		
+
+		}struct1,struct2,struct3;
+
+
+		struct struct_name struct4. = malloc(sizeof(struct_name));
+		
+		NOTE: If we don’t provide an alias, that is, we don’t do a typedef declaration, then when we declare new variables of the structure type, we have to use the notation
+
+
+			struct struct_name
+
+
+		
+	We can become even more fancy by then giving the entire struct an alias (since we don’t want to type “struct” repeatedly in our declarations of new variables)
+
+
+		typedef struct struct_name{
+
+			int val;
+
+		} alias_1;
+
+		
+		/*since we’ve said that alias_1 is also a stand-in for “struct struct_name”, this means we can use either alias_1 or “struct struct_name” in declarations. To illustrate: */
+
+		struct struct_name * pointertostruct1 = malloc(sizeof(struct struct_name));
+		alias_1 * pointertostruct2 = malloc(sizeof(alias_1));
+
+
+
+	Memory: The memory size of a struct is, as far as we can tell, just the sum of the memory sizes of the data types contained within it. 
+
+
+
+
+	
