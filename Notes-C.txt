@@ -65,7 +65,7 @@ The Basics
     - Also note that all projects themselves are saved under a single folder with the name of whatever you called the project. The project folder seems to be able to
     be saved anywhere. 
     
-    Creating a New File
+    Creating a New File (with actual IDE's such as CodeLite etc)
     - Once a source of constant mystery, the notion of creating a new project is now no longer shrouded in mystery: All you do, to run a new program, is click twice
     on the project in the workspace pane on the left. 
     
@@ -88,10 +88,14 @@ Identifiers
 		- Keywords are words which are reserved for use in a predefined context. 
 		- For example, the “while” word can only be used for iteration and testing. It won’t allow the user to set initial conditions in its testing. Likewise, the word “else” can only be used after the user has already used an “if” statement. 
 
+
+
 Expressions and Statements
 	- Expressions are any valid combination of constants, variables, operators and function calls. 
 	- Statements are expressions terminated by a semicolon. 
     
+
+
 Data Types
 
 	Arrays
@@ -496,6 +500,8 @@ we're also changing the value of the variable, because our program recognises th
     
         [array_type] *[array name][] =
         
+
+
 Scope
 	- The idea of scope refers to how far reaching a variable is, or over what domain its value holds. 
 	- The simple rule is: 
@@ -525,3 +531,18 @@ Scope
 
 Structures
 - Structures are pretty much just objects and classes in C. 
+
+
+
+
+
+
+File Input and Output
+
+	fr = open("[pathname]","[access_mode]")
+
+		Here, the pathname is a string, and the access mode is an octal number which designates the access permissions for different groups, that is, something of the form 0711
+
+	
+
+	fr = creat("[path_name]","[access_mode]")
